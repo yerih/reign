@@ -1,22 +1,22 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
     </data>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.admissions.empty_project.ui.MainFragment">
+        tools:context="com.admissions.empty_project.presentation.MainFragment">
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="34sp"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:text="main frag" />
+            tools:listitem="@layout/item_layout"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

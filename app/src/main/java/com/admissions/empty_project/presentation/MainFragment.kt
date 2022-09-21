@@ -1,4 +1,4 @@
-package com.admissions.empty_project.ui
+package com.admissions.empty_project.presentation
 
 import android.os.Bundle
 import android.view.View

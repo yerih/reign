@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Empty_project">
         <activity
-            android:name="com.admissions.empty_project.ui.NavHostActivity"
+            android:name="com.admissions.empty_project.presentation.NavHostActivity"
             android:exported="true"
             android:theme="@style/Theme.Empty_project.NoActionBar">
             <intent-filter>

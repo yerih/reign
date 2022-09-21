@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.admissions.empty_project.ui.MainFragment"
+        android:name="com.admissions.empty_project.presentation.MainFragment"
         tools:layout="@layout/fragment_main"
         android:label="MainFragment" />
 </navigation>
