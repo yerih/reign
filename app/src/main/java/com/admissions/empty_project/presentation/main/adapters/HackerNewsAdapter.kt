@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.admissions.domain.HackerNew
 import com.admissions.empty_project.data.databinding.ItemLayoutBinding
 
-class HackerNewsAdapter(private val listener: ()->Unit): ListAdapter<HackerNew, HackerNewsAdapter.ViewHolder>(DiffUtilCallback) {
+class HackerNewsAdapter(private val listener: (HackerNew)->Unit): ListAdapter<HackerNew, HackerNewsAdapter.ViewHolder>(DiffUtilCallback) {
 
     class ViewHolder(private val binding: ItemLayoutBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(hackerNew: HackerNew){binding.hackerNew = hackerNew}
@@ -21,7 +21,7 @@ class HackerNewsAdapter(private val listener: ()->Unit): ListAdapter<HackerNew, 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
         holder.bind(item)
-        holder.itemView.setOnClickListener { listener() }
+        holder.itemView.setOnClickListener { listener(item) }
     }
 
 }

@@ -18,7 +18,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = HackerNewsAdapter{ findNavController().navigate(MainFragmentDirections.actionMainFragmentToDetailFragment())}
+        val adapter = HackerNewsAdapter{ item ->
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToDetailFragment2(item.url))
+        }
         adapter.submitList(listOf(
             HackerNew(), HackerNew(),HackerNew(), HackerNew()
         ))
