@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.admissions.empty_project.presentation.main.MainFragment"
+        android:name="com.admissions.reign.presentation.main.MainFragment"
         tools:layout="@layout/fragment_main"
         android:label="MainFragment" >
 
@@ -19,7 +19,7 @@
     <fragment
         tools:layout="@layout/fragment_detail"
         android:id="@+id/detailFragment"
-        android:name="com.admissions.empty_project.presentation.detail.DetailFragment"
+        android:name="com.admissions.reign.presentation.detail.DetailFragment"
         android:label="DetailFragment" >
         <argument
             android:name="url"
