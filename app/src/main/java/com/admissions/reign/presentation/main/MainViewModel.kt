@@ -7,6 +7,7 @@ import com.admissions.usecases.HackerNewUserCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -27,7 +28,8 @@ class MainViewModel @Inject constructor(
     }
 
     private suspend fun getHackerNews(){
-        val result = hackerNewsUseCase.getHackerNews()
-        _state.update { it.copy(list = result.result!!) }
+        val result = hackerNewsUseCase.getHackerNews().collect{ list ->
+            _state.update { it.copy(list = list) }
+        }
     }
 }
