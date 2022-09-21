@@ -9,5 +9,4 @@ class HackerNewUserCases(
     private val hackerRepo: HackerNewRepository
 ){
     suspend fun getHackerNews(): Result<List<HackerNew>> = hackerRepo.getHackerNews()
-    suspend fun anyLocal() = hackerRepo.anyDB()
 }

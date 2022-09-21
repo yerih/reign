@@ -9,6 +9,8 @@ class HackerNewRepository(
     private val hackerRemoteDataSource: HackerRemoteDataSource,
     private val localDataSource: LocalDataSource
 ){
+
+    val hackerNews = localDataSource.list
     suspend fun getHackerNews(): Result<List<HackerNew>> = hackerRemoteDataSource.getHackerNews()
-    suspend fun anyDB(): Unit = localDataSource.method()
+    suspend fun insertList(list: List<HackerNew>): Unit = localDataSource.insertList(list)
 }

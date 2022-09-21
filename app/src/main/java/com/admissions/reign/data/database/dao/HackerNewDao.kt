@@ -11,6 +11,13 @@ interface HackerNewDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAny(p: HackerNewEntity)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertList(list: List<HackerNewEntity>)
+
+
+    @Query("SELECT COUNT(id) FROM hackernews")
+    suspend fun itemsCount(): Int
+
 //    @Delete
 //    fun deleteAny()
 

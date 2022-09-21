@@ -11,9 +11,9 @@ import kotlinx.parcelize.Parcelize
 @Entity(tableName = Constants.hackerNewEntity)
 data class HackerNewEntity(
     @PrimaryKey
-    val id: String,
     val url: String,
     val title: String,
     val author: String,
     val date: String,
+    val id: Int,
 ) : Parcelable
