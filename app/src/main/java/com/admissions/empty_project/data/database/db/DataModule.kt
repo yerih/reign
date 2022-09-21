@@ -1,4 +1,4 @@
-package com.admissions.empty_project.data.di
+package com.admissions.empty_project.data.database.db
 
 import com.admissions.data.repository.AnyRepository
 import com.admissions.data.source.AnyRemoteDataSource

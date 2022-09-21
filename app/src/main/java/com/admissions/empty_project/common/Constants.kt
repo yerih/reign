@@ -1,3 +1,9 @@
 package com.admissions.empty_project.common
 
-const val AnyEntityName = "any"
+class Constants{
+
+    companion object {
+        const val hackerNewEntity = "hackernews"
+        const val hackerNewDataBaseName = "hacker-new-db"
+    }
+}

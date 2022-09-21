@@ -17,9 +17,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentDetailBinding.bind(view).apply {
-            url = args.url
-        }
+        val binding = FragmentDetailBinding.bind(view).apply { url = args.url }
     }
 
 }

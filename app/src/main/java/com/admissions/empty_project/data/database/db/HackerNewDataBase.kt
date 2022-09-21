@@ -4,29 +4,30 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.admissions.empty_project.data.database.dao.AnyDao
-import com.admissions.empty_project.data.database.entity.AnyEntity
+import com.admissions.empty_project.common.Constants
+import com.admissions.empty_project.data.database.dao.HackerNewDao
+import com.admissions.empty_project.data.database.entity.HackerNewEntity
 
 
 @Database(
-    entities = [AnyEntity::class],
+    entities = [HackerNewEntity::class],
     version = 1
 )
 
-abstract class NameAppDataBase : RoomDatabase() {
-    abstract fun anyDao(): AnyDao
+abstract class HackerNewDataBase : RoomDatabase() {
+    abstract fun hackerNewDao(): HackerNewDao
     companion object{
         @Volatile
-        private var INSTANCE: NameAppDataBase? = null
+        private var INSTANCE: HackerNewDataBase? = null
 
-        fun getInstance(context: Context): NameAppDataBase {
+        fun getInstance(context: Context): HackerNewDataBase {
             synchronized(this) {
                 var instance = INSTANCE
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        NameAppDataBase::class.java,
-                        "database-empty-app"
+                        HackerNewDataBase::class.java,
+                        Constants.hackerNewDataBaseName
                     )
                         .fallbackToDestructiveMigration()
                         .build()
