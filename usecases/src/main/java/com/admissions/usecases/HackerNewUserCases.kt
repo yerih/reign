@@ -2,7 +2,6 @@ package com.admissions.usecases
 
 import com.admissions.data.repository.HackerNewRepository
 import com.admissions.domain.HackerNew
-import com.admissions.domain.Result
 import kotlinx.coroutines.flow.Flow
 
 

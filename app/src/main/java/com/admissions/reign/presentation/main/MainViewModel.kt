@@ -23,13 +23,8 @@ class MainViewModel @Inject constructor(
     private val _state = MutableStateFlow(UiState())
     val state = _state.asStateFlow()
 
-    init {
-        viewModelScope.launch { getHackerNews() }
-    }
+    init { viewModelScope.launch { getHackerNews() } }
 
-    private suspend fun getHackerNews(){
-        val result = hackerNewsUseCase.getHackerNews().collect{ list ->
-            _state.update { it.copy(list = list) }
-        }
-    }
+    private suspend fun getHackerNews() = hackerNewsUseCase.getHackerNews().collect{ list -> _state.update { it.copy(list = list) } }
+    fun refreshHackerNews() = viewModelScope.launch { hackerNewsUseCase.getHackerNews() }
 }
