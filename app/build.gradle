@@ -78,4 +78,7 @@ dependencies {
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
 
+
+    //Plugin de Http
+    implementation 'com.localebro:okhttpprofiler:1.0.8'
 }

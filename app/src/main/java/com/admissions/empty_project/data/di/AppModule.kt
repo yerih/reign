@@ -5,7 +5,7 @@ import com.admissions.data.source.LocalDataSource
 import com.admissions.empty_project.data.database.dao.HackerNewDao
 import com.admissions.empty_project.data.database.db.HackerNewDataBase
 import com.admissions.empty_project.data.database.db.RoomDataBase
-import com.admissions.empty_project.data.server.AnyNetworkDataSource
+import com.admissions.empty_project.data.server.HackerRemoteDataSourceImpl
 import com.admissions.empty_project.data.server.RetrofitSettings
 import dagger.Module
 import dagger.Provides
@@ -28,7 +28,7 @@ class AppModule {
     fun okHTTPClientProvider(): OkHttpClient = RetrofitSettings.okHttpClient
 
     @Provides
-    fun anyRemoteDataSourceProvider() = AnyNetworkDataSource()
+    fun anyRemoteDataSourceProvider() = HackerRemoteDataSourceImpl()
 
     @Provides
     fun anyDaoProvider(db: HackerNewDataBase) = db.hackerNewDao()

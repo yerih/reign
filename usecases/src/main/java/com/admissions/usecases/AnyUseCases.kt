@@ -1,11 +1,13 @@
 package com.admissions.usecases
 
 import com.admissions.data.repository.AnyRepository
+import com.admissions.domain.HackerNew
+import com.admissions.domain.Result
 
 
 class AnyUseCases(
-    private val anyRepository: AnyRepository
+    private val hackerRepo: AnyRepository
 ){
-//    suspend fun anyRemote() = anyRepository.anyRemote()
-    suspend fun anyLocal() = anyRepository.anyDB()
+    suspend fun getHackerNews(): Result<List<HackerNew>> = hackerRepo.getHackerNews()
+    suspend fun anyLocal() = hackerRepo.anyDB()
 }

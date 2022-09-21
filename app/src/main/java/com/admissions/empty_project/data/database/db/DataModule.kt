@@ -1,9 +1,7 @@
 package com.admissions.empty_project.data.database.db
 
 import com.admissions.data.repository.AnyRepository
-import com.admissions.data.source.AnyRemoteDataSource
-import com.admissions.empty_project.data.database.db.RoomDataBase
-import com.admissions.empty_project.data.server.AnyNetworkDataSource
+import com.admissions.empty_project.data.server.HackerRemoteDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,6 +13,6 @@ import dagger.hilt.components.SingletonComponent
 class DataModule {
 
     @Provides
-    fun anyRepositoryProvider(anyNetworkDataSource: AnyNetworkDataSource, localDataSource: RoomDataBase) = AnyRepository(anyNetworkDataSource,localDataSource)
+    fun anyRepositoryProvider(anyNetworkDataSource: HackerRemoteDataSourceImpl, localDataSource: RoomDataBase) = AnyRepository(anyNetworkDataSource,localDataSource)
 
 }

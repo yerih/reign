@@ -1,6 +1,7 @@
 package com.admissions.empty_project.data.server
 
 import com.google.gson.GsonBuilder
+import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,6 +16,7 @@ class RetrofitSettings {
         val okHttpClient: OkHttpClient = OkHttpClient.Builder()
             .connectTimeout(10, TimeUnit.MINUTES)
             .readTimeout(90, TimeUnit.SECONDS)
+            .addInterceptor(OkHttpProfilerInterceptor())
             .writeTimeout(90, TimeUnit.SECONDS)
             .build()
 
