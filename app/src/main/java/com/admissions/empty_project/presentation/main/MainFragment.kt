@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.admissions.empty_project.data.R
 import com.admissions.empty_project.data.databinding.FragmentMainBinding
+import com.admissions.empty_project.presentation.main.adapters.HackerNewsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -15,7 +16,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentMainBinding.bind(view).apply {  }
+        val adapter = HackerNewsAdapter{}
+        adapter.submitList(listOf("hola", "como", "estas"))
+        val binding = FragmentMainBinding.bind(view).apply {
+            recycler.adapter = adapter
+        }
     }
 
 }
