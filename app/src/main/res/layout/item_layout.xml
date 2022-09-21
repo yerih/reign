@@ -5,12 +5,16 @@
 
     <data>
 
+        <variable
+            name="hackerNew"
+            type="com.admissions.domain.HackerNew" />
+
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         app:contentPadding="15dp"
         app:cardCornerRadius="15dp"
         app:cardElevation="5dp"
@@ -25,7 +29,7 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{`title text`}"
+                android:text="@{hackerNew.title}"
                 tools:text="title text"
                 android:textSize="14sp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -36,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
-                android:text="@{`author text`}"
+                android:text="@{hackerNew.author}"
                 android:layout_marginTop="10dp"
                 tools:text="author text"
                 app:layout_constraintTop_toBottomOf="@+id/title"
@@ -54,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
-                android:text="@{`author text`}"
+                android:text="@{hackerNew.date}"
                 tools:text="author text"
                 android:layout_marginStart="5dp"
                 app:layout_constraintTop_toTopOf="@+id/author"

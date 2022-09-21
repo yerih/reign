@@ -54,6 +54,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.0'
     implementation project(path: ':data')
     implementation project(path: ':usecases')
+    implementation project(path: ':domain')
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
