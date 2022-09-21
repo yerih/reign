@@ -1,4 +1,4 @@
-package com.admissions.empty_project.presentation
+package com.admissions.empty_project.presentation.main
 
 import androidx.lifecycle.ViewModel
 import com.admissions.usecases.AnyUseCases
