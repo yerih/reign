@@ -15,8 +15,8 @@ data class HackerNewsResponse(
 
 fun List<HackerNewsResponse.Hit>.asHackerNewList(): List<HackerNew> = map { it.asHackerNew() }
 fun HackerNewsResponse.Hit.asHackerNew(): HackerNew = HackerNew(
-    title = story_title?:"",
-    author = author?:"",
-    date = created_at?:"",
-    url = story_url?:""
+    title = story_title?:"not available",
+    author = author?:"not available",
+    date = created_at?:"not available",
+    url = story_url?:"not available"
 )

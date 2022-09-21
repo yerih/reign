@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="state"
+            type="com.admissions.empty_project.presentation.main.MainViewModel.UiState" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/item_layout"
+            app:list="@{state.list}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

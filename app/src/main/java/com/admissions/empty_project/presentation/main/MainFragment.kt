@@ -26,12 +26,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         val adapter = HackerNewsAdapter{ item ->
             findNavController().navigate(MainFragmentDirections.actionMainFragmentToDetailFragment2(item.url))
         }
-        val binding = FragmentMainBinding.bind(view).apply {
-            recycler.adapter = adapter
-        }
-        launchAndCollect(mViewModel.state){ state ->
-            adapter.submitList(state.list)
-        }
+        val binding = FragmentMainBinding.bind(view).apply { recycler.adapter = adapter }
+        launchAndCollect(mViewModel.state){ state -> binding.state = state }
     }
 
 }
