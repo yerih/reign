@@ -1,5 +1,6 @@
 package com.admissions.reign.presentation.main
 
+import android.view.View
 import androidx.constraintlayout.motion.widget.OnSwipe
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -22,23 +23,25 @@ class MainViewModel @Inject constructor(
 ): ViewModel() {
 
     data class UiState(
-        val list: List<HackerNew> = emptyList()
+        val list: List<HackerNew> = emptyList(),
+        val visibleErrorText: Boolean = false
     )
     private val _state = MutableStateFlow(UiState())
     val state = _state.asStateFlow()
     interface onSwipeListener{ fun onSwipe(direction: Int, item: HackerNew) }
+    interface onScrollToRefresh{ fun onRefresh() }
 
     init {
         launch(Dispatchers.IO) {
-//            delay(6000)
             getHackerNews()
-            hackerNewsUseCase.hackerNews().collect{ list -> _state.update { it.copy(list = list) }}
         }
     }
 
-    private suspend fun getHackerNews() = hackerNewsUseCase.requestHackerNews()//.collect{ list -> _state.update { it.copy(list = list) } }
-    fun refreshHackerNews() = viewModelScope.launch { hackerNewsUseCase.requestHackerNews() }
+    private suspend fun getHackerNews(){
+        hackerNewsUseCase.requestHackerNews().collect{ list -> _state.update { it.copy(list = list, visibleErrorText = list.isEmpty()) } }
+    }
     val onSwipe = object : onSwipeListener {
         override fun onSwipe(direction: Int, item: HackerNew) = launch(Dispatchers.IO) { hackerNewsUseCase.delete(item) }
     }
+    val onRefresh = object : onScrollToRefresh{ override fun onRefresh() { launch(Dispatchers.IO) { hackerNewsUseCase.requestHackerNews(true) }} }
 }

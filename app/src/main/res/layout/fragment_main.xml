@@ -1,6 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,6 +8,7 @@
         <variable
             name="viewModel"
             type="com.admissions.reign.presentation.main.MainViewModel" />
+
         <variable
             name="state"
             type="com.admissions.reign.presentation.main.MainViewModel.UiState" />
@@ -19,14 +20,35 @@
         android:padding="10dp"
         tools:context="com.admissions.reign.presentation.main.MainFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/item_layout"
-            app:list="@{state.list}"
-            app:onSwipe="@{viewModel.onSwipe}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:onRefresh="@{viewModel.onRefresh}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:list="@{state.list}"
+                app:onSwipe="@{viewModel.onSwipe}"
+                tools:listitem="@layout/item_layout" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="Data not available"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textColor="@color/white"
+            app:visible="@{state.visibleErrorText}"
+            tools:text="Data not available" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

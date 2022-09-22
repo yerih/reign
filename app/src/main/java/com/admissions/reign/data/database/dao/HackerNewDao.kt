@@ -8,10 +8,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface HackerNewDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAny(p: HackerNewEntity)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertList(list: List<HackerNewEntity>)
 
 
@@ -23,10 +23,6 @@ interface HackerNewDao {
 
     @Query("SELECT * FROM ${Constants.hackerNewEntity}")
     fun getAll(): Flow<List<HackerNewEntity>>
-
-//    @Query("SELECT * FROM $AnyEntityName where id=:id")
-//    suspend fun getAnyById(id: String): AnyEntity?
-
 
 }
 

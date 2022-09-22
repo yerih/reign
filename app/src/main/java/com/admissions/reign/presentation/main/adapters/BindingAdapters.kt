@@ -1,11 +1,15 @@
 package com.admissions.reign.presentation.main.adapters
 
 import android.annotation.SuppressLint
+import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.admissions.domain.HackerNew
 import com.admissions.reign.presentation.main.MainViewModel
 
@@ -38,5 +42,11 @@ fun RecyclerView.setOnSwipeListener(listener: MainViewModel.onSwipeListener){
 
     }).attachToRecyclerView(this)
 }
+
+@BindingAdapter("onRefresh")
+fun SwipeRefreshLayout.setOnRefreshListener(listener: MainViewModel.onScrollToRefresh) = setOnRefreshListener { listener.onRefresh(); isRefreshing = false }
+
+@BindingAdapter("visible")
+fun View.setVisible(value: Boolean){ visibility = if(value) VISIBLE else GONE }
 
 
