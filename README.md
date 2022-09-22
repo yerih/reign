@@ -2,7 +2,7 @@
 
 This app show news titles in a list. 
 
-## How to works
+## How does it work
 
 When you run app the first time, it should load the news list. If not, a text data not available is shown.
 Then, when the news list is loaded, you can click an item and check details.
