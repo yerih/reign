@@ -1,1 +1,3 @@
 # reign
+
+# How to works
