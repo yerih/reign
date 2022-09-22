@@ -13,7 +13,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.admissions.empty_project"
+        applicationId "com.admissions.reign"
         minSdk 28
         targetSdk 32
         versionCode 1
