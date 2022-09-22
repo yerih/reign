@@ -14,12 +14,18 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.ReignApp.NoActionBar">
+    <style name="Theme.Reign.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.ReignApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Reign.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.ReignApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.Reign.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--    Splash screen-->
+    <style name="Theme.Reign.SplashTheme" parent="Theme.Reign.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
 </resources>

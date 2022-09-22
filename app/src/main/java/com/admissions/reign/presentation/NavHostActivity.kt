@@ -9,6 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class NavHostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_Reign)
         setContentView(R.layout.activity_nav_host)
     }
 }
