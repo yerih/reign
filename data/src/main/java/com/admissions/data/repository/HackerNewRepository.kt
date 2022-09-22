@@ -11,14 +11,18 @@ class HackerNewRepository(
     private val localDataSource: LocalDataSource
 ){
 
-    private val hackerNews = localDataSource.list
-    suspend fun requestHackerNews(): Flow<List<HackerNew>> {
-        val result: Result<List<HackerNew>>
+    val hackerNews = localDataSource.list
+    suspend fun requestHackerNews(): Unit {
+//        val result: Result<List<HackerNew>>
         if(localDataSource.isEmpty()) {
-            result = hackerRemoteDataSource.getHackerNews()
-            insertList(result.result!!)
+            val result = hackerRemoteDataSource.getHackerNews()
+            result.result!!.size
+            result.result!!.forEach { hackerNew -> insert(hackerNew) }
+//            insertList(result.result!!)
         }
-        return hackerNews
+//        return hackerNews
     }
+    suspend fun insert(h: HackerNew): Unit = localDataSource.insert(h)
     suspend fun insertList(list: List<HackerNew>): Unit = localDataSource.insertList(list)
+    suspend fun delete(h: HackerNew) = localDataSource.delete(h)
 }

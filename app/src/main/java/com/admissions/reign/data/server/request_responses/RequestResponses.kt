@@ -20,5 +20,5 @@ fun HackerNewsResponse.Hit.asHackerNew(): HackerNew = HackerNew(
     author = author?:"not available",
     date = created_at?:"not available",
     url = story_url?:"not available",
-    id = story_id?:0
+//    id = story_id?:0
 )

@@ -8,5 +8,7 @@ interface LocalDataSource{
     val list: Flow<List<HackerNew>>
     suspend fun isEmpty(): Boolean
     suspend fun insertList(list: List<HackerNew>): Unit
+    suspend fun insert(h: HackerNew): Unit
     suspend fun getAll(): Flow<List<HackerNew>>
+    suspend fun delete(h: HackerNew): Unit
 }

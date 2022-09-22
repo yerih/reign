@@ -4,6 +4,10 @@
 
     <data>
 
+
+        <variable
+            name="viewModel"
+            type="com.admissions.reign.presentation.main.MainViewModel" />
         <variable
             name="state"
             type="com.admissions.reign.presentation.main.MainViewModel.UiState" />
@@ -21,6 +25,7 @@
             android:layout_height="match_parent"
             tools:listitem="@layout/item_layout"
             app:list="@{state.list}"
+            app:onSwipe="@{viewModel.onSwipe}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

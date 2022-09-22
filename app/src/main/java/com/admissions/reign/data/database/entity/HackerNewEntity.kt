@@ -15,5 +15,5 @@ data class HackerNewEntity(
     val title: String,
     val author: String,
     val date: String,
-    val id: Int,
+//    val id: Int,
 ) : Parcelable

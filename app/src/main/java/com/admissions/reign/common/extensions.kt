@@ -1,9 +1,8 @@
 package com.admissions.reign.common
 
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.*
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.cancellable
 import kotlinx.coroutines.launch
@@ -21,5 +20,6 @@ fun <T> LifecycleOwner.launchAndCollect(
     }
 }
 
+fun ViewModel.launch(dispatcher: CoroutineDispatcher = Dispatchers.Main, run: suspend ()->Unit){ viewModelScope.launch(dispatcher){run()} }
 
 
